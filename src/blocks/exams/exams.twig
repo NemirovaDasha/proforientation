@@ -1,0 +1,67 @@
+{#{% set examsItems = [
+  {
+    title: "Базавая подготовка к&nbsp;ЕГЭ по&nbsp;математике",
+    description: "Курс по&nbsp;общей подготовке к&nbsp;ЕГЭ по&nbsp;математике. Разбор заданий первой части, повторение школьного курса алгебры и&nbsp;геометрии, закрепление знаний, полученных в&nbsp;школе",
+    img: "assets/img/exams/math.svg",
+    tag: "ЕГЭ, математика, базовая математика, базовая подготовка"
+  },
+  {
+    title: "Подготовка к&nbsp;ОГЭ по&nbsp;русскому языку",
+    description: "Курс по&nbsp;подготовке к&nbsp;ОГЭ по&nbsp;русскому языку. Разбор заданий письменной и&nbsp;устной части. Повторение правил русского языка, разбор тестовых заданий. Обучение написанию изложения и&nbsp;сочинения, а&nbsp;также разбор устой части экзамена с&nbsp;подробным изучением каждого из&nbsp;четырех заданий",
+    img: "assets/img/exams/russian.svg",
+    tag: "ОГЭ, русский язык, базовая подготовка"
+  },
+  {
+    title: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;литературе",
+    description: "Курс по&nbsp;подготовке к&nbsp;ЕГЭ по&nbsp;литературе. Разбор тестовых заданий, изучение правильного анализа произведений и&nbsp;написания сочинений",
+    img: "assets/img/exams/literature.svg",
+    tag: "ЕГЭ, литература, углубленная подготовка"
+  },
+  {
+    title: "Подкотовка к&nbsp;ЕГЭ по&nbsp;профильной математике",
+    description: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;профильной математике. Подробный разбор решения всех задач, особое внимание к&nbsp;заданиям второй части. Повторение школьного курса алгебры и&nbsp;геометрии, изучение нового материала",
+    img: "assets/img/exams/math.svg",
+    tag: "ЕГЭ, математика, профильная математика, базовая подготовка"
+  },
+  {
+    title: "Подготовка к&nbsp;ОГЭ по&nbsp;физике",
+    description: "Базовая подготовка к&nbsp;ОГЭ по&nbsp;физике. Разбор тестовых заданий и&nbsp;повторение школьного курса физики, а&nbsp;также разбор правильного использования лабораторного оборудования для выполения задач второй части экзамена",
+    img: "assets/img/exams/math.svg",
+    tag: "ОГЭ, физика, базовая подготовка"
+  },
+  {
+    title: "Подготовка к&nbsp;ЕГЭ по&nbsp;истории",
+    description: "Подготовка к&nbsp;ЕГЭ по&nbsp;истории с&nbsp;углубленным изучением программы. Разбор заданий тестовой части, изучение истории до&nbsp;XX&nbsp;века. Развитие умений рассуждать, аргументировать свою позицию и&nbsp;излагать мысли письменно для сдачи второй части экзамена",
+    img: "assets/img/exams/math.svg",
+    tag: "ЕГЭ, история, углубленная подготовка"
+  }
+] %}#}
+
+<section class="exams" id="exams">
+  <h2 class="title">Подготовка к ЕГЭ и ОГЭ</h2>
+  <div class="wrapper exams__container" id="vue-exam">
+    <article class="exams__item" v-for="item in compShowItems">
+      <figure class="exams__image" :style="{'background-color': item.color}">
+        <img :src="item.icon" :alt="item.title" class="exams__img">
+      </figure>
+      <div class="exams__text-container">
+        <p class="exams__title" v-html="item.title"></p>
+        <p class="exams__description" v-html="item.description"></p>
+      </div>
+      <p class="exams__tag">
+        <template v-for="tag,key in item.tags">
+          <button
+            class="exams__tag-btn"
+            type="button"
+            @click="sortExam(tag.id)"
+          >
+            ${tag.title}
+          </button><template v-if="key<item.tags.length-1">,  </template>
+        </template>
+      </p>
+    </article>
+    <button class="btn__throw" type="button" @click="sort=undefined; count=3" v-if="sort">Сбросить фильтр</button>
+    <img src="assets/img/preloader.png" alt="Прелоадер" class="preloader">
+    <button class="btn__more" type="button" @click="setCount" v-if="count<compFilterItems.length">Больше курсов</button>
+  </div>
+</section>

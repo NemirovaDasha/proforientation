@@ -1,0 +1,487 @@
+{% extends 'template/main.twig' %}
+
+{% block body %}
+  {% include '../blocks/general/general.twig' %}
+  {% include '../blocks/services/services.twig' %}
+  {% include '../blocks/exams/exams.twig' %}
+
+  <script>
+    window.examItems = [
+      {
+        id: 11000,
+        title: "Базавая подготовка к&nbsp;ЕГЭ по&nbsp;математике",
+        description: "Курс по&nbsp;общей подготовке к&nbsp;ЕГЭ по&nbsp;математике. Разбор заданий первой части, повторение школьного курса алгебры и&nbsp;геометрии, закрепление знаний, полученных в&nbsp;школе",
+        icon: "assets/img/exams/math.svg",
+        color: '#61ADA9',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'maths',
+            title: 'математика'
+          },
+          {
+            id: 'base-maths',
+            title: 'базовая математика'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 12000,
+        title: "Подготовка к&nbsp;ОГЭ по&nbsp;русскому языку",
+        description: "Курс по&nbsp;подготовке к&nbsp;ОГЭ по&nbsp;русскому языку. Разбор заданий письменной и&nbsp;устной части. Повторение правил русского языка, разбор тестовых заданий. Обучение написанию изложения и&nbsp;сочинения, а&nbsp;также разбор устой части экзамена с&nbsp;подробным изучением каждого из&nbsp;четырех заданий",
+        icon: "assets/img/exams/russian.svg",
+        color: '#6169AD',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'russian',
+            title: 'русский язык'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 13000,
+        title: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;литературе",
+        description: "Курс по&nbsp;подготовке к&nbsp;ЕГЭ по&nbsp;литературе. Разбор тестовых заданий, изучение правильного анализа произведений и&nbsp;написания сочинений",
+        icon: "assets/img/exams/literature.svg",
+        color: '#dbb25e',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'literature',
+            title: 'литература'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 14000,
+        title: "Подготовка к&nbsp;ЕГЭ по&nbsp;профильной математике",
+        description: "Курс по&nbsp;базовой подготовке к&nbsp;ЕГЭ по&nbsp;профильной математике. Подробный разбор решения всех задач, особое внимание к&nbsp;заданиям второй части. Повторение школьного курса алгебры и&nbsp;геометрии, изучение нового материала",
+        icon: "assets/img/exams/math.svg",
+        color: '#61ADA9',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'maths',
+            title: 'математика'
+          },
+          {
+            id: 'advanced-maths',
+            title: 'профильная математика'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 15000,
+        title: "Подготовка к&nbsp;ОГЭ по&nbsp;физике",
+        description: "Базовая подготовка к&nbsp;ОГЭ по&nbsp;физике. Разбор тестовых заданий и&nbsp;повторение школьного курса физики, а&nbsp;также разбор правильного использования лабораторного оборудования для выполения задач второй части экзамена",
+        icon: "assets/img/exams/physics.svg",
+        color: '#c73cd4',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'physics',
+            title: 'физика'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 16000,
+        title: "Подготовка к&nbsp;ЕГЭ по&nbsp;истории",
+        description: "Подготовка к&nbsp;ЕГЭ по&nbsp;истории с&nbsp;углубленным изучением программы. Разбор заданий тестовой части, изучение истории до&nbsp;XX&nbsp;века. Развитие умений рассуждать, аргументировать свою позицию и&nbsp;излагать мысли письменно для сдачи второй части экзамена",
+        icon: "assets/img/exams/history.svg",
+        color: '#CFCB5D',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'history',
+            title: 'история'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 17000,
+        title: "Подготовка к&nbsp;ЕГЭ по&nbsp;обществознанию",
+        description: "Курс по&nbsp;углубленной подготовке к&nbsp;экзамену по&nbsp;обществознанию. Разбор заданий базового и&nbsp;повышенного уровней сложности. Разбор тестовой и&nbsp;письменной частей экзамена. Изучение права, философии, социологии, экономики и&nbsp;политологии",
+        icon: "assets/img/exams/social.svg",
+        color: '#6169AD',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'social',
+            title: 'обществознание'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 18000,
+        title: "Подготовка к&nbsp;письменной части ОГЭ по&nbsp;английскому языку",
+        description: "Подготовка к&nbsp;письменной части экзамена по&nbsp;английскому языку. Разбор тестовых заданий и&nbsp;заданий с&nbsp;развернутым ответом. Повторение школьной программы и&nbsp;основ языка в&nbsp;разделах &laquo;Аудирование&raquo;, &laquo;Чтение&raquo;, &laquo;Грамматика и&nbsp;лексика&raquo; и&nbsp;&laquo;Письмо&raquo;",
+        icon: "assets/img/exams/language.svg",
+        color: '#dbb25e',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'english',
+            title: 'анлглийский язык'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 19000,
+        title: "Подготовка к&nbsp;устной части ОГЭ по&nbsp;английскому языку",
+        description: "Подготовка к&nbsp;устной части экзамена по&nbsp;английскому языку. Изучение правильного выполнения задания, правильного произношения и&nbsp;понимания речи на&nbsp;слух. Разбор примеров заданий. Повторение основ грамматики языка",
+        icon: "assets/img/exams/language.svg",
+        color: '#dbb25e',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'english',
+            title: 'анлглийский язык'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 20000,
+        title: "Подготовка к&nbsp;ОГЭ по&nbsp;математике",
+        description: "Курс по&nbsp;общей подготовке к&nbsp;ОГЭ по&nbsp;математике. Повторение модулей &laquo;алгебра&raquo; и&nbsp;&laquo;геометрия&raquo;. Разбор заданий базового и&nbsp;повышенного уровней сложности для решения задач тестовой части и&nbsp;задач с&nbsp;развернутым ответом",
+        icon: "assets/img/exams/math.svg",
+        color: '#61ADA9',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'maths',
+            title: 'математика'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 21000,
+        title: "Подготовка к&nbsp;ЕГЭ по&nbsp;русскому языку",
+        description: "Базовая подготовка к&nbsp;экзамену по&nbsp;русскому языку. Изучение правли языка, повторение школьной программы. Разбор написания сочинения для второй части экзамена с&nbsp;обучением правильного анализа текста",
+        icon: "assets/img/exams/russian.svg",
+        color: '#6169AD',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'russian',
+            title: 'русский язык'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 22000,
+        title: "Подготовка к&nbsp;EГЭ по&nbsp;физике",
+        description: "Курс по&nbsp;подготовке к&nbsp;ЕГЭ по&nbsp;физике с&nbsp;углубленным изучением материала. Подробный разбор заданий тестовой части и&nbsp;задач с&nbsp;развернутым ответом, изучение различных физических явлений, необходимых для сдачи экзамена. Обучение грамотному оформлению решения задач",
+        icon: "assets/img/exams/physics.svg",
+        color: '#c73cd4',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'physics',
+            title: 'физика'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 23000,
+        title: "Подготовка к&nbsp;ОГЭ по&nbsp;обществознанию",
+        description: "Курс по&nbsp;общей подготовке к&nbsp;ОГЭ по&nbsp;обществознанию. Обучение анализу текста для решения задач с&nbsp;развернутым ответом, а&nbsp;также разбор заданий тестовой части. Повторение школьной программы курса обществознания",
+        icon: "assets/img/exams/social.svg",
+        color: '#6169AD',
+        tags: [
+          {
+            id: 'oge',
+            title: 'ОГЭ'
+          },
+          {
+            id: 'social',
+            title: 'обществознание'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 24000,
+        title: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;английскому языку",
+        description: "Углубленная подготовка к&nbsp;экзамену по&nbsp;английскому языку. Разбор решения задач в&nbsp;разделах &laquo;письмо&raquo;, &laquo;аудирование&raquo;, &laquo;чтение&raquo;, и&nbsp;&laquo;лексика и&nbsp;грамматика&raquo;. Обучение написанию эссе и&nbsp;письма, изучение правил для написания текста с&nbsp;элементами рассуждения",
+        icon: "assets/img/exams/language.svg",
+        color: '#dbb25e',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'english',
+            title: 'анлглийский язык'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      },
+      {
+        id: 25000,
+        title: "Подготовкак к&nbsp;ЕГЭ по&nbsp;биологии",
+        description: "Курс по&nbsp;общей подготовке к&nbsp;ЕГЭ по&nbsp;биологии. Повторение школьной программы, закрепление нового пройденного материала. Разбор решения задач с&nbsp;развернутым ответом и&nbsp;пояснения билогических процессов. Решение тестовых заданий",
+        icon: "assets/img/exams/biology.svg",
+        color: '#be446e',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'biology',
+            title: 'биология'
+          },
+          {
+            id: 'base-training',
+            title: 'базовая подготовка'
+          },
+          {
+            id: 'group',
+            title: 'в группе'
+          }
+        ]
+      },
+      {
+        id: 26000,
+        title: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;химии",
+        description: "Углубленная подготовка к&nbsp;ЕГЭ по&nbsp;химии. Обучение работы с&nbsp;различными таблицами и&nbsp;другими материалами, которыми можно пользоваться на&nbsp;экзамене. Разбор задач базового, повыешенного и&nbsp;высокого уровней сложности с&nbsp;их&nbsp;грамотным оформлением. Особое внимание уделяется заданиям с&nbsp;развернутым ответом",
+        icon: "assets/img/exams/chemistry.svg",
+        color: '#797a80',
+        tags: [
+          {
+            id: 'ege',
+            title: 'ЕГЭ'
+          },
+          {
+            id: 'chemistry',
+            title: 'химия'
+          },
+          {
+            id: 'advanced-training',
+            title: 'углубленная подготовка'
+          },
+          {
+            id: 'person',
+            title: 'индивидуально'
+          }
+        ]
+      }
+      /*{
+      id: 1_000,
+      title: "",
+      description: "",
+      icon: "assets/img/exams/",
+      color: '#CFCB5D',
+      tags: [
+        {
+          id: 'ege',
+          title: 'ЕГЭ'
+        },
+        {
+          id: 'history',
+          title: 'история'
+        },
+        {
+          id: 'advanced-training',
+          title: 'углубленная подготовка'
+        },
+        {
+          id: 'oge',
+          title: 'ОГЭ'
+        },
+        {
+          id: 'physics',
+          title: 'физика'
+        },
+        {
+          id: 'base-training',
+          title: 'базовая подготовка'
+        },
+        {
+          id: 'maths',
+          title: 'математика'
+        },
+        {
+          id: 'advanced-maths',
+          title: 'профильная математика'
+        },
+        {
+          id: 'literature',
+          title: 'литература'
+        },
+        {
+          id: 'russian',
+          title: 'русский язык'
+        },
+        {
+          id: 'base-maths',
+          title: 'базовая математика'
+        },
+        {
+          id: 'person',
+          title: 'индивидуально'
+        }
+        {
+          id: 'group',
+          title: 'в группе'
+        }
+      ]
+    }*/
+    ];
+  </script>
+
+{% endblock %}
+
+
+
+
+
