@@ -18,36 +18,62 @@
     box-shadow:    0 4px 10px rgba(0, 0, 0, 0.25);
     border-radius: 2px;
 
-    &.more {
-      animation: itemDown 0.5s;
-      transform: translateY(100%);
-      display:   none;
+    @include w-to($screen-lg) {
+      height: 260px;
     }
-
-    &.mod-show {
-      animation: itemUp 0.5s;
-      transform: translateY(0);
-      display:   block;
+    @include w-to($screen-md) {
+      height: 248px;
     }
   }
 
   &__text-container {
     margin: 48px 42px;
+    @include w-to($screen-lg) {
+      margin: 38px 32px;
+    }
+    @include w-to($screen-md) {
+      margin: 14px 12px;
+    }
   }
 
   &__title {
     @include font-size(24px, normal, 28px);
     font-weight:   bold;
     margin-bottom: 24px;
+
+    @include w-to($screen-lg) {
+      @include font-size(20px, normal, 24px);
+    }
+    @include w-to($screen-md) {
+      @include font-size(16px, normal, 18px);
+      margin-bottom: 8px;
+    }
+  }
+
+  &__description {
+    @include w-to($screen-lg) {
+      @include font-size(14px, normal, 18px);
+    }
+    @include w-to($screen-md) {
+      @include font-size(12px, normal, 14px);
+    }
   }
 
   &__image {
-    width:       300px;
+    width:       25%;
     height:      100%;
     padding:     115px 0;
     box-sizing:  border-box;
     flex-shrink: 0;
     text-align:  center;
+
+    @include w-to($screen-lg) {
+      padding: 68px 0;
+    }
+    @include w-to($screen-md) {
+      width:   30%;
+      padding: 86px 0;
+    }
   }
 
   &__img {
@@ -56,18 +82,41 @@
   }
 
   &__tag {
-    position: absolute;
-    bottom:   32px;
-    right:    36px;
+    @include display-flex($justify: flex-end);
+    position:  absolute;
+    bottom:    32px;
+    right:     36px;
+    flex-wrap: wrap;
+    max-width: 70%;
+
+    @include w-to($screen-lg) {
+      @include font-size(12px, normal, 14px);
+      right: 32px;
+    }
+    @include w-to($screen-md) {
+      @include font-size(10px, normal, 12px);
+      bottom: 4px;
+      right:  6px;
+    }
   }
 
   &__tag-btn {
-    color:      $color-text-link;
-    transition: color $transition-fast;
+    @include font-size(16px, normal, 26px);
+    color:       $color-text-link;
+    transition:  color $transition-fast;
+    margin-left: 8px;
 
     &:hover {
       color:      $color-text-light;
       transition: color $transition-medium;
+    }
+
+    @include w-to($screen-lg) {
+      @include font-size(12px, normal, 14px);
+      margin-left: 4px;
+    }
+    @include w-to($screen-md) {
+      @include font-size(10px, normal, 12px);
     }
   }
 }

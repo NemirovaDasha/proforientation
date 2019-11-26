@@ -2,7 +2,7 @@
   width:      100%;
   max-width:  1200px;
   margin:     0 auto;
-  padding:    60px 0;
+  padding:    60px 16px;
   box-sizing: border-box;
 }
 
@@ -12,6 +12,13 @@
   margin:      0 auto;
   padding-top: 80px;
   font-weight: bold;
+  max-width:   94%;
+  text-align:  center;
+
+  @include w-to($screen-md) {
+    @include font-size(28px, normal, 36px);
+    padding-top: 60px;
+  }
 }
 
 .btn__more {
@@ -22,6 +29,10 @@
   margin:     40px auto 0;
   color:      $color-text-link;
   transition: color $transition-fast;
+
+  @include w-to($screen-md) {
+    @include font-size(18px, normal, 22px);
+  }
 
   &:hover {
     color:      $color-text-light;
@@ -37,30 +48,5 @@
   &:hover {
     color:      red;
     transition: color $transition-medium;
-  }
-}
-
-.preloader {
-  position:  absolute;
-  bottom:    94px;
-  left:      50%;
-  transform: translateX(-50%) rotate(0);
-  display:   none;
-  width:     40px;
-  height:    40px;
-
-  &.show {
-    display:   block;
-    animation: load 3s;
-    transform: translateX(-50%) rotate(500deg);
-  }
-}
-
-@keyframes load {
-  0% {
-    transform: translateX(-50%) rotate(0deg);
-  }
-  100% {
-    transform: translateX(-50%) rotate(800deg);
   }
 }
