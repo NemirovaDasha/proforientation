@@ -1,0 +1,36 @@
+.prof-introduction {
+  @include display-flex(column);
+
+  &__item {
+    @include display-flex($align: center);
+    margin-bottom: 72px;
+
+    &.mod-right {
+      align-self: flex-end;
+    }
+  }
+
+  &__text {
+    @include font-size(24px, normal, 32px);
+    font-weight: bold;
+    color:       $color-text-dark;
+    margin:      auto 32px;
+    max-width:   690px;
+  }
+
+  &__img {
+    height: 250px;
+    width:  auto;
+  }
+
+  &__desc {
+    max-width: 660px;
+    margin:    auto 32px;
+
+  }
+
+  &__icon {
+    height: 86px;
+    width:  auto;
+  }
+}

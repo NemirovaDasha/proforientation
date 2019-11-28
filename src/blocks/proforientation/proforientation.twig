@@ -1,0 +1,68 @@
+{% set profItems = [
+  {
+    title: "Профориентация для школьников",
+    description: [
+    {title: "выполнение различных тестов по современным методикам"},
+    {title: "анализ и разбор пройденных тестов"},
+    {title: "беседы со специалистами"},
+    {title: "подробное объяснение полученных данных"},
+    {title: "помощь с дальнейшим планом развития (выбор вуза или курсов)"},
+    {title: "индивидуальный подход к каждому"}
+  ],
+    audience: "ученики 9-11 классов",
+    image: "assets/img/profotientation/school.jpg"
+  },
+  {
+    title: "Профориентация для студентов",
+    description: [
+    {title: "беседы со специалистами"},
+    {title: "анализ полученного образования"},
+    {title: "подробное объяснение полученных данных"},
+    {title: "помощь с выбором места работы"},
+    {title: "индивидуальный подход к каждому"}
+  ],
+    audience: "студенты 3-5 курсов",
+    image: "assets/img/profotientation/graduate.jpg"
+  },
+  {
+    title: "Профориентация для взрослых",
+    description: [
+    {title: "разбор причин неудовлетворенности полученной профессией"},
+    {title: "беседы со специалистами"},
+    {title: "выполнение различных тестов по современным методикам"},
+    {title: "анализ и разбор пройденных тестов"},
+    {title: "подробное объяснение полученных данных"},
+    {title: "разбор предыдущего опыта и помощь с дальнейшим планом действий"},
+    {title: "индивидуальный подход к каждому"}
+  ],
+    audience: "25 - 40 лет",
+    image: "assets/img/profotientation/men.jpg"
+  },
+] %}
+
+<div class="proforientation-image">
+  <img src="assets/img/index2.png" alt="Профориентация" class="proforientation-image__img">
+</div>
+
+<section class="proforientation">
+  <h2 class="title">Профориетация и&nbsp;тестирование</h2>
+  <article class="proforientation__container wrapper">
+    {% include '../prof-introduction/prof-introduction.twig' %}
+    <div class="proforientation__info">
+      {% for item in profItems %}
+        <article class="proforientation__item">
+          <img src="{{ item.image }}" class="proforientation__img">
+          <div class="proforientation__item-container">
+            <h3 class="proforientation__title">{{ item.title }}</h3>
+            <ul class="proforientation__list">
+              {% for  li in item.description %}
+                <li class="proforientation__list-item">{{ li.title }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <p class="proforientation__audience">Аудитория: {{ item.audience }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </article>
+</section>

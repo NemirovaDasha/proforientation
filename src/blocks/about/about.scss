@@ -1,0 +1,33 @@
+.about {
+  width:      100%;
+  background: $color-background-gray;
+
+  &__item {
+    box-sizing: border-box;
+
+    &.mod-right {
+      @include display-flex(row-reverse);
+      background: transparent;
+      padding:    42px 60px 42px 0;
+    }
+
+    &.mod-left {
+      @include display-flex(row);
+      background: white;
+      padding:    42px 0 42px 60px;
+    }
+  }
+
+  &__img {
+    max-height: 350px;
+    width:      auto;
+    height:     auto;
+    max-width:  500px;
+    object-fit: cover;
+  }
+
+  &__desc {
+    max-width: 500px;
+    margin:    auto;
+  }
+}
