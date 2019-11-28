@@ -1,6 +1,4 @@
 .exams {
-  width:      100%;
-  background: $color-background-gray;
 
   &__container {
     @include display-flex(column);
@@ -102,6 +100,7 @@
 
   &__tag-btn {
     @include font-size(16px, normal, 26px);
+    @include inc-click-area(8px);
     color:       $color-text-link;
     transition:  color $transition-fast;
     margin-left: 8px;

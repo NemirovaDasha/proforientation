@@ -18,8 +18,9 @@ body {
   display:             grid;
   grid-template:       auto 325px/1fr;
   grid-template-areas: 'main' 'footer';
+  overflow-x:          hidden;
 }
 
 .container {
-  grid-area:  main;
+  grid-area: main;
 }

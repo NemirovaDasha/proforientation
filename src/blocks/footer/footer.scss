@@ -2,7 +2,7 @@
   grid-area: footer;
 
   &__container {
-    @include font-size(18px, normal, 28px);
+    @include font-size(18px, normal, 31px);
     @include display-flex($justify: space-between);
     width:      100%;
     height:     272px;

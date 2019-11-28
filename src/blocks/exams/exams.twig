@@ -37,10 +37,11 @@
   }
 ] %}#}
 
-<section class="exams" id="exams">
-  <h2 class="title">Подготовка к&nbsp;ЕГЭ&nbsp;и&nbsp;ОГЭ</h2>
+<section class="exams main-wrapper" id="exams">
+  {% include '../navigation/navigation.twig' %}
+  <h2 class="title">Подготовка к&nbsp;экзаменам</h2>
   <div class="wrapper exams__container" id="vue-exam">
-    <article class="exams__item wow fadeInUp" v-for="item in compShowItems">
+    <article class="exams__item" v-for="item in compShowItems" data-aos="fade-up">
       <figure class="exams__image" :style="{'background-color': item.color}">
         <img :src="item.icon" :alt="item.title" class="exams__img">
       </figure>
@@ -58,7 +59,7 @@
         </template>
       </p>
     </article>
-    <button class="btn__throw" type="button" @click="sort=undefined; count=3" v-if="sort">Сбросить фильтр</button>
+    <button class="btn__throw" type="button" @click="count=3; sortExam(undefined)" v-if="sort">Сбросить фильтр</button>
     {% include '../preloader/preloader.twig'  %}
     <button class="btn__more" type="button" @click="setCount" v-if="count<compFilterItems.length">Больше курсов</button>
   </div>

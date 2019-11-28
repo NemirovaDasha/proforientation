@@ -41,7 +41,8 @@
   }
 ] %}
 
-<section class="services" id="services">
+<section class="services main-wrapper" id="services">
+  {% include '../navigation/navigation.twig' %}
   <h2 class="title">Наши услуги</h2>
   <div class="wrapper services__container">
     {% for item in servicesItems %}

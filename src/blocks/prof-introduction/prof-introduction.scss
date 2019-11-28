@@ -14,7 +14,7 @@
     @include font-size(24px, normal, 32px);
     font-weight: bold;
     color:       $color-text-dark;
-    margin:      auto 32px;
+    margin:      auto 64px;
     max-width:   690px;
   }
 
@@ -24,6 +24,7 @@
   }
 
   &__desc {
+    @include font-size(16px, normal, 26px);
     max-width: 660px;
     margin:    auto 32px;
 

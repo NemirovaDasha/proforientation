@@ -33,6 +33,7 @@ export default () => {
       },
       sortExam(id) {
         this.sort = id;
+        $('html,body').stop().animate({ scrollTop: $('#exams').offset().top }, 700);
       }
     }
   });

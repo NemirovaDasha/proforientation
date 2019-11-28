@@ -1,0 +1,40 @@
+.navigation {
+  @include display-flex();
+  z-index:  2;
+  position: absolute;
+  top:      32px;
+  right:    32px;
+
+  &__link {
+    @include font-size(16px, normal, 26px);
+    @include inc-click-area(10px);
+    margin-right:    16px;
+    display:         inline-block;
+    text-decoration: none;
+    position:        relative;
+
+    &:after {
+      background-color: #8d8d8d;
+      display:          block;
+      content:          "";
+      height:           1px;
+      width:            0;
+      left:             50%;
+      position:         absolute;
+      transition:       width .2s ease-in-out;
+      transform:        translateX(-50%);
+    }
+
+    &:hover {
+      color: inherit;
+
+      &:after {
+        width: 100%;
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

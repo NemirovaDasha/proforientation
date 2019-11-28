@@ -3,7 +3,10 @@ import vueExams from "./parts/vue-script/vueExams";
 $(() => {
   Vue.options.delimiters = ['${', '}'];
   vueExams();
-  new WOW().init();
+
+  AOS.init({
+    once: true
+  });
 
   //скролл к первому блоку
   $('.js-forward').click(function () {
@@ -26,11 +29,16 @@ $(() => {
   });
 
   //плавный переход по якорям
-  $('.footer__link').on('click', function(e){
+  slowScroll($('.footer__link'));
+  slowScroll($('.navigation__link'));
+});
+
+function slowScroll(block) {
+  $(block).on('click', function(e){
     const block = $(e.target).attr('href');
     $('html,body').stop().animate({ scrollTop: $(block).offset().top }, 700);
     e.preventDefault();
   });
-});
+}
 
 

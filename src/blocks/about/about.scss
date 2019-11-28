@@ -1,6 +1,4 @@
 .about {
-  width:      100%;
-  background: $color-background-gray;
 
   &__item {
     box-sizing: border-box;
@@ -27,7 +25,16 @@
   }
 
   &__desc {
+    @include font-size(16px, normal, 26px);
     max-width: 500px;
     margin:    auto;
+  }
+
+  &__desc-text {
+    margin-bottom: 26px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }

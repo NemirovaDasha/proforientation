@@ -1,3 +1,13 @@
+.main-wrapper {
+  width:      100%;
+  position:   relative;
+  background: white;
+
+  &:nth-child(2n) {
+    background: $color-background-gray;
+  }
+}
+
 .wrapper {
   width:      100%;
   max-width:  1200px;

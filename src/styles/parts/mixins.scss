@@ -21,7 +21,7 @@
 
 @mixin inc-click-area($px: 10px) {
   position: relative;
-  &:after {
+  &:before {
     content:  '';
     position: absolute;
     top:      -$px;
