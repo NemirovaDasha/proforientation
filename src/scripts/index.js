@@ -35,7 +35,15 @@ $(() => {
   hideNav();
   window.onresize = function () {
     hideNav();
-  }
+  };
+
+  //lazyload для картинок
+  let images = $('img');
+  new LazyLoad(images, {
+    root: null,
+    rootMargin: "500px",
+    threshold: 0
+  });
 });
 
 function slowScroll(block) {

@@ -4,7 +4,7 @@
   <div class="wrapper exams__container" id="vue-exam">
     <article class="exams__item" v-for="item in compShowItems" data-aos="fade-up">
       <figure class="exams__image" :style="{'background-color': item.color}">
-        <img :src="item.icon" :alt="item.title" class="exams__img">
+        <img :data-src="item.icon" :alt="item.title" class="exams__img">
       </figure>
       <div class="exams__text-container">
         <p class="exams__title" v-html="item.title"></p>

@@ -41,7 +41,7 @@
 ] %}
 
 <div class="proforientation-image">
-  <img src="assets/img/index2.jpg" alt="Профориентация" class="proforientation-image__img">
+  <img data-src="assets/img/index2.jpg" alt="Профориентация" class="proforientation-image__img">
 </div>
 
 <section class="proforientation main-wrapper" id="proforientation">
@@ -52,7 +52,7 @@
     <div class="proforientation__info">
       {% for item in profItems %}
         <article class="proforientation__item">
-          <img src="{{ item.image }}" class="proforientation__img">
+          <img data-src="{{ item.image }}" class="proforientation__img">
           <div class="proforientation__item-container">
             <h3 class="proforientation__title">{{ item.title }}</h3>
             <ul class="proforientation__list">

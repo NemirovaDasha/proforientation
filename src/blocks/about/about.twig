@@ -33,7 +33,7 @@
   <div class="wrapper">
     {% for item in aboutItems %}
       <article class="about__item mod-{{ item.mod }}" data-aos="fade-{{ item.mod }}" data-aos-duration="650">
-        <img src="{{ item.img }}" class="about__img mod-{{ item.mod }}">
+        <img data-src="{{ item.img }}" class="about__img mod-{{ item.mod }}">
         <div class="about__desc">
           {% for p in item.desc %}
             <p class="about__desc-text">{{ p.text }}</p>

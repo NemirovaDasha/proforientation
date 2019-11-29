@@ -48,7 +48,7 @@
     {% for item in servicesItems %}
       <article class="services__item">
         <figure class="services__image">
-          <img src="{{ item.img }}" alt="{{ item.title }}" class="services__img">
+          <img data-src="{{ item.img }}" alt="{{ item.title }}" class="services__img">
         </figure>
         <div class="services__text-container">
           <p class="services__title">{{ item.title }}</p>

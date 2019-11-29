@@ -79,7 +79,6 @@ gulp.task('build:styles', () => {
 });
 gulp.task('build:scripts', () => {
   gulp.src('src/scripts/vendor/*.js')
-    .pipe(uglify())
     .pipe(gulp.dest('build/scripts/vendor/'));
 
   gulp.src('src/scripts/index.js')
