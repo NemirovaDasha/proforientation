@@ -31,14 +31,29 @@ $(() => {
   //плавный переход по якорям
   slowScroll($('.footer__link'));
   slowScroll($('.navigation__link'));
+
+  hideNav();
+  window.onresize = function () {
+    hideNav();
+  }
 });
 
 function slowScroll(block) {
-  $(block).on('click', function(e){
+  $(block).on('click', function (e) {
     const block = $(e.target).attr('href');
-    $('html,body').stop().animate({ scrollTop: $(block).offset().top }, 700);
+    $('html,body').stop().animate({scrollTop: $(block).offset().top}, 700);
     e.preventDefault();
   });
+}
+
+//скрываем навигацию на мобильных устройствах
+function hideNav() {
+  if ($(window).width() < '768') {
+    $('.navigation').hide();
+  } else {
+    $('.navigation').show();
+  }
+  $('.general').children('.navigation').show();
 }
 
 

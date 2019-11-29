@@ -79,7 +79,7 @@
     height: 100%;
   }
 
-  &__tag {
+  &__tags {
     @include display-flex($justify: flex-end);
     position:  absolute;
     bottom:    32px;
@@ -96,6 +96,10 @@
       bottom: 4px;
       right:  6px;
     }
+  }
+
+  &__tag-container {
+    white-space: nowrap;
   }
 
   &__tag-btn {

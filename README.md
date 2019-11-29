@@ -32,10 +32,3 @@
 ### 4. `build/`
 Готовая вёрстка, передаётся на внедрение.
 
-
-
-
-
-—
-
-Сделано на основе: https://gitlab.com/igor_petrov/gulp-template

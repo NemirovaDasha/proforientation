@@ -1,18 +1,35 @@
 .about {
+  overflow-x: hidden;
 
   &__item {
     box-sizing: border-box;
+    @include display-flex(row, center, space-around);
+
+    @include w-to($screen-md) {
+      @include display-flex(column, center);
+    }
 
     &.mod-right {
-      @include display-flex(row-reverse);
-      background: transparent;
-      padding:    42px 60px 42px 0;
+      flex-direction: row-reverse;
+      background:     transparent;
+      padding:        42px 60px 42px 0;
+
+      @include w-to($screen-lg) {
+        padding: 32px 24px;
+      }
+
+      @include w-to($screen-md) {
+        flex-direction: column;
+      }
     }
 
     &.mod-left {
-      @include display-flex(row);
       background: white;
       padding:    42px 0 42px 60px;
+
+      @include w-to($screen-lg) {
+        padding: 32px 24px;
+      }
     }
   }
 
@@ -22,12 +39,38 @@
     height:     auto;
     max-width:  500px;
     object-fit: cover;
+
+    @include w-to($screen-lg) {
+      max-width: 280px;
+    }
+    @include w-to($screen-md) {
+      width:         100%;
+      max-width:     500px;
+      margin-bottom: 24px;
+    }
+
+    &.mod-right {
+      @include w-to($screen-lg) {
+        margin-left: 24px;
+      }
+      @include w-to($screen-md) {
+        margin-left: 0;
+      }
+    }
+
+    &.mod-left {
+      @include w-to($screen-lg) {
+        margin-right: 24px;
+      }
+      @include w-to($screen-md) {
+        margin-right: 0;
+      }
+    }
   }
 
   &__desc {
     @include font-size(16px, normal, 26px);
     max-width: 500px;
-    margin:    auto;
   }
 
   &__desc-text {

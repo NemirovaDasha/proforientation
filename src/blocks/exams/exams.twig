@@ -49,13 +49,15 @@
         <p class="exams__title" v-html="item.title"></p>
         <p class="exams__description" v-html="item.description"></p>
       </div>
-      <p class="exams__tag">
+      <p class="exams__tags">
         <template v-for="tag,key in item.tags">
+          <span class="exams__tag-container">
           <button
             class="exams__tag-btn"
             type="button"
             @click="sortExam(tag.id)"
           >${tag.title}</button><template v-if="key<item.tags.length-1">,  </template>
+        </span>
         </template>
       </p>
     </article>

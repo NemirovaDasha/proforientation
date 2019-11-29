@@ -1,7 +1,6 @@
 {
   "name": "builder",
   "version": "1.0.0",
-  "author": "Igor Petrov",
   "license": "ISC",
   "scripts": {
     "prettier": "prettier --config config/prettier.config.js --write src/scripts/*.js",

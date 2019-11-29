@@ -39,6 +39,7 @@
 
   &__forward {
     @include font-size(24px, normal, 28px);
+    @include inc-click-area(10px);
     transform: rotate(90deg) translateY(26%);
     position:  absolute;
     left:      50%;

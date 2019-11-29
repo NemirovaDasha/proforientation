@@ -8,6 +8,11 @@
     &.mod-right {
       align-self: flex-end;
     }
+
+    @include w-to($screen-md) {
+      @include display-flex(column, center);
+      margin-bottom: 54px;
+    }
   }
 
   &__text {
@@ -16,22 +21,41 @@
     color:       $color-text-dark;
     margin:      auto 64px;
     max-width:   690px;
+
+    @include w-to($screen-lg) {
+      @include font-size(20px, normal, 28px);
+    }
+
+    @include w-to($screen-md) {
+      text-align: center;
+      margin:     32px 0;
+    }
   }
 
   &__img {
-    height: 250px;
-    width:  auto;
+    height:    250px;
+    width:     auto;
+    max-width: 100%;
   }
 
   &__desc {
     @include font-size(16px, normal, 26px);
     max-width: 660px;
     margin:    auto 32px;
-
+    @include w-to($screen-md) {
+      margin:     0;
+      text-align: center;
+    }
   }
 
   &__icon {
     height: 86px;
     width:  auto;
+    @include w-to($screen-lg) {
+      height: 64px;
+    }
+    @include w-to($screen-md) {
+      display: none;
+    }
   }
 }

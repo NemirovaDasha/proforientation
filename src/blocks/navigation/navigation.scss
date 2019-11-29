@@ -1,17 +1,27 @@
 .navigation {
   @include display-flex();
+  @include font-size(16px, normal, 26px);
   z-index:  2;
   position: absolute;
   top:      32px;
   right:    32px;
 
+  @include w-to($screen-md) {
+    @include display-flex(column, flex-end);
+    @include font-size(12px, normal, 20px);
+    right:    16px;
+  }
+
   &__link {
-    @include font-size(16px, normal, 26px);
     @include inc-click-area(10px);
     margin-right:    16px;
     display:         inline-block;
     text-decoration: none;
     position:        relative;
+
+    @include w-to($screen-md) {
+      margin-right: 0;
+    }
 
     &:after {
       background-color: #8d8d8d;
