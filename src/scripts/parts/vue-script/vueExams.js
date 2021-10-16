@@ -2,38 +2,57 @@ export default () => {
   new Vue({
     el: '#vue-exam',
     data: {
+      exams: window.examItems,
       items: window.examItems,
       count: 3,
-      sort: undefined
+      filters: {},
+      showFilters: false
     },
     computed: {
-      compFilterItems() {
-        let result = this.items;
-        if (this.sort) {
-          this.count = 3;
-          result = result.filter(item => {
-            let hasTag = false;
-            item.tags.forEach(tag => hasTag = tag.id === this.sort ? true : hasTag);
-            return hasTag;
-          });
-        }
-        return result;
-      },
       compShowItems() {
-        return this.compFilterItems.slice(0, this.count);
+        return this.items.slice(0, this.count);
       }
     },
     methods: {
       setCount() {
         $('.preloader').addClass('show');
-        setTimeout( () => {
+        setTimeout(() => {
           this.count += 3;
           $('.preloader').removeClass('show');
-        }, 1500);
+        }, 800);
       },
-      sortExam(id) {
-        this.sort = id;
-        $('html,body').stop().animate({ scrollTop: $('#exams').offset().top }, 700);
+      filterExams() {
+        let result = this.exams;
+        if (this.showFilters) {
+          this.count = 3;
+          for (let key in this.filters) {
+            result = result.filter(exam => {
+              return exam.tags.find(tag => tag.id === key);
+            });
+          }
+          $('html,body').stop().animate({scrollTop: $('#exams').offset().top}, 700);
+        }
+        this.items = result
+      },
+      sortExam(tagId, title) {
+        this.showFilters = true;
+        this.filters[tagId] = title;
+        this.filterExams();
+      },
+      resetFilter() {
+        this.count = 3;
+        this.showFilters = false;
+        this.filters = {}
+        this.items = window.examItems;
+        $('html,body').stop().animate({scrollTop: $('#exams').offset().top}, 700);
+      },
+      removeFilter(key){
+        delete this.filters[key];
+        if (Object.keys(this.filters).length) {
+          this.filterExams();
+        }else{
+          this.resetFilter();
+        }
       }
     }
   });

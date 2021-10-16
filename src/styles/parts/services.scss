@@ -50,13 +50,3 @@
   }
 }
 
-.btn__throw {
-  margin-left: auto;
-  color:       $color-text-light;
-  transition:  color $transition-fast;
-
-  &:hover {
-    color:      red;
-    transition: color $transition-medium;
-  }
-}

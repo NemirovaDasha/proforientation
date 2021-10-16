@@ -2,28 +2,40 @@
   {% include '../navigation/navigation.twig' %}
   <h2 class="title">Подготовка к&nbsp;экзаменам</h2>
   <div class="wrapper exams__container" id="vue-exam">
-    <article class="exams__item" v-for="item in compShowItems" data-aos="fade-up">
+    <article class="exams__item" v-for="item in compShowItems" :key="item.id" data-aos="fade-up">
       <figure class="exams__image" :style="{'background-color': item.color}">
-        <img :data-src="item.icon" :alt="item.title" class="exams__img">
+        <img :src="item.icon" :alt="item.alt" class="exams__img">
       </figure>
       <div class="exams__text-container">
         <p class="exams__title" v-html="item.title"></p>
         <p class="exams__description" v-html="item.description"></p>
       </div>
       <p class="exams__tags">
-        <template v-for="tag,key in item.tags">
+        <template v-for="(tag,key) in item.tags">
           <span class="exams__tag-container">
           <button
             class="exams__tag-btn"
             type="button"
-            @click="sortExam(tag.id)"
+            @click="sortExam(tag.id, tag.title)"
           >${tag.title}</button><template v-if="key<item.tags.length-1">,  </template>
         </span>
         </template>
       </p>
     </article>
-    <button class="btn__throw" type="button" @click="count=3; sortExam(undefined)" v-if="sort">Сбросить фильтр</button>
-    {% include '../preloader/preloader.twig'  %}
-    <button class="btn__more" type="button" @click="setCount" v-if="count<compFilterItems.length">Больше курсов</button>
+    <div class="exams__result" v-if="showFilters">
+      <div class="exams__filters">
+        <button
+          v-for="[key, value] in Object.entries(filters)"
+          :key="key"
+          class="exams__filter-btn m-with-icon"
+          type="button"
+          @click="removeFilter(key)"
+        >${value}
+        </button>
+      </div>
+      <button class="exams__filter-btn" type="button" @click="resetFilter">Сбросить фильтры</button>
+    </div>
+    {% include '../preloader/preloader.twig' %}
+    <button class="btn__more" type="button" @click="setCount" v-if="count<items.length">Больше курсов</button>
   </div>
 </section>

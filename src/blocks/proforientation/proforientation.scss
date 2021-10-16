@@ -50,12 +50,6 @@
     @include w-to($screen-lg) {
       @include font-size(16px, normal, 22px);
     }
-
-    &:hover {
-      cursor:     default;
-      transform:  scale(1.05);
-      transition: all $transition-slow;
-    }
   }
 
   &__img {

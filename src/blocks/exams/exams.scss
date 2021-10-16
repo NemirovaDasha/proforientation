@@ -1,5 +1,4 @@
 .exams {
-
   &__container {
     @include display-flex(column);
     position: relative;
@@ -120,6 +119,57 @@
     }
     @include w-to($screen-md) {
       @include font-size(10px, normal, 12px);
+    }
+  }
+
+  &__result {
+    @include display-flex($justify: space-between);
+    width:  100%;
+    margin: -5px -5px 0;
+  }
+
+  &__filters {
+    flex-shrink: 0;
+  }
+
+  &__filter-btn {
+    color:       $color-text-light;
+    transition:  color $transition-fast;
+    flex-shrink: 0;
+    padding:     5px;
+    line-height: 14px;
+
+    &:hover {
+      color:      red;
+      transition: color $transition-medium;
+    }
+
+    &.m-with-icon {
+      position:      relative;
+      padding-right: 25px;
+      border:        thin solid currentColor;
+      border-radius: 5px;
+      margin-right:  5px;
+
+      &::after,
+      &::before {
+        content:          "";
+        display:          block;
+        width:            1px;
+        height:           10px;
+        background-color: currentColor;
+        position:         absolute;
+        top:              7px;
+        right:            10px;
+      }
+
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
     }
   }
 }
