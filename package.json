@@ -4,7 +4,8 @@
   "license": "ISC",
   "scripts": {
     "prettier": "prettier --config config/prettier.config.js --write src/scripts/*.js",
-    "lint": "eslint --config config/eslint.config.js --fix src/scripts/*.js "
+    "lint": "eslint --config config/eslint.config.js --fix src/scripts/*.js",
+    "build": "gulp build"
   },
   "husky": {
     "hooks": {
